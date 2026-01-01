@@ -1,0 +1,398 @@
+---
+title: "MAT 440: Introduction and What to Expect"
+author: Dr. Gilbert
+format: 
+  revealjs:
+    smaller: true
+date: today
+date-format: long
+theme: serif
+incremental: true
+---
+
+```{r global-options, include=FALSE}
+library(tidyverse)
+
+theme_set(theme_bw(base_size = 20))
+```
+
+```{css}
+code.sourceCode {
+  font-size: 1.3em;
+  /* or try font-size: xx-large; */
+}
+
+a {
+  color: purple;
+}
+
+a:link {
+  color: purple;
+}
+
+a:visited {
+  color: purple;
+}
+```
+
+## What is BIG Problems?
+
+:::{.fragment}
+
+BIG Problems is a course in which student teams work on problems of interest to an external partnering entity.
+
+:::
+
+:::{.fragment}
+
+Past partners and problems have included
+
+:::
+
++ Modeling dermal absorption of bromochloromethane, a harmful chemical which is present in some water supplies (partner: US EPA)
++ Modeling tumor growth (partner: DEKA Research and Development)
++ Optimizing manufacturing processes under the threat of rolling blackouts (partner: Procter and Gamble)
++ Developing wide-area search strategies for UAVs and drones (partner: BAE Systems)
+
+## What is BIG Problems?
+
+<div style="font-size:18pt">
+
+:::{.fragment}
+
+Students in BIG Problems are tasked with large, unscripted, messy problems that have real-world implications.
+
+:::
+
+:::{.fragment}
+
+These types of problems are often classified as *Wicked Problems*
+
+:::
+
+::::{.columns}
+
+:::{.column width="50%"}
+
+1. They do not have a definitive formulation.
+2. They do not have a "stopping rule". That is, there is no inherent logic signaling when the problem is solved.
+3. The solutions are not true or false, they're good or bad instead.
+4. There is no way to test the solution of a wicked problem without deploying it.
+5. They cannot be studied through trial and error. The impacts of solutions are irreversible once they are applied.
+
+:::
+
+:::{.column width="50%"}
+
+6. There is no end to the number of solutions or approaches to a wicked problem.
+7. All wicked problems are essentially unique.
+8. Wicked problems can always be described as a symptom of other problems.
+9. The way a wicked problem is described determines its possible solutions.
+10. There is no "right to be wrong". Presenters own the consequences of the solutions they generate; the effects can matter a great deal to the people who are touched by those actions.
+
+:::
+
+::::
+
+
+:::{.fragment}
+
+At times, you will feel uncertain or underprepared. This is not a sign that you are failing; it is evidence that you are engaging with problems of genuine complexity and learning how to work through them responsibly.
+
+:::
+
+</div>
+
+## Challenges with BIG Problems
+
+<div style="font-size:18pt">
+
+:::{.fragment}
+
+There is much about the problems you'll encounter in BIG Problems that you haven't needed to worry about before.
+
+:::
+
+1. You won't be working on a series of homework problems or a class project. Instead, you'll be working on a project that has importance to an outside liaison. You'll need to justify all of your decisions and plans to them. They'll also help direct your investigations.
+2. BIG Problems do not come "pre-scoped". You'll need to define and justify the scope of the problem so that you can investigate and propose meaningful and realistic solutions.
+3. The solutions to BIG Problems have real-world consequences and you'll need to assess those consequences, justify the payoff, and prepare and justify mitigation plans.
+4. You'll almost surely need background (mathematical and otherwise) that you do not already have exposure to. You'll need to seek out appropriate techniques, tools, etc., learn how to use them responsibly, and justify their utility to stakeholders.
+
+:::{.fragment}
+
+Part of the course is learning to identify what you need, how to acquire it, and how to critically re-evaluate whether a given idea or tool is appropriate, adjusting course when necessary.
+
+:::
+
+:::{.fragment}
+
+I, and our liaison(s), will provide guidance and feedback as you go along.
+
+:::
+
+</div>
+
+## What Success Looks Like
+
+:::{.fragment}
+
+In this course, successful teams:
+
+:::
+
++ Make defensible decisions under uncertainty.
++ Revise their thinking in response to evidence and feedback.
++ Communicate limitations honestly to stakeholders.
++ Work through disagreement professionally.
++ Produce something that is genuinely useful—even if imperfect.
+
+## Your BIG Problem
+
+<div style="font-size:18pt">
+
+::::{.columns}
+
+:::{.column width="60%"}
+
+:::{.fragment data-fragment-index=1}
+
+We'll be collaborating with the [Blue Ocean Society](https://www.blueoceansociety.org/), a marine conservation non-profit, this semester.
+
+:::
+
+:::{.fragment data-fragment-index=2}
+
+The Blue Ocean Society will be sharing data with us (more on this later). They've proposed the following starters for project topics.
+
+:::
+
+:::
+
+:::{.column width="40%"}
+
+:::{.fragment data-fragment-index=1}
+
+![](Liaisons/blueoceanlogo4.png)
+
+:::
+
+:::
+
+::::
+
+::::{.columns}
+
+:::{.column width="60%"}
+
++ Weekly or monthly migratory models for keystone whale species (fin and humpback) to determine annual trends in small-scale habitat usage.
++ Determine factors such as the presence of phytoplankton and/or sea surface temp that influence when/where keystone species (humpback and fin whale) will be.
++ Marine debris and cleanup modeling.
++ Other project focuses may be possible under the Blue Ocean Society partnership umbrella. These projects must be approved by our liaison though.
+
+:::
+
+:::{.column width="40%"}
+
+:::{.fragment}
+
+**External Data Sources:** Our contacts at the Blue Ocean Society have mentioned that the following data sources should be useful to you.
+
+:::
+
++ The [National Buoy Data Center at NOAA](https://www.ndbc.noaa.gov/) tracks lots of useful information about the ocean surface. 
++ The [Northeastern Regional Association of Coastal Ocean Observing Systems](https://neracoos.org/) also tracks lots of potentially useful information.
+
+:::
+
+::::
+
+</div>
+
+## Syllabus
+
+**Major Highlights from the Syllabus**: I'll ask you to read the syllabus, but the most important items are on the following slides.
+
+## Instructor and Office Hours
+
+  + Instructor: Dr. Adam Gilbert
+  
+    + e-mail address: [a.gilbert1@snhu.edu](mailto:a.gilbert1@snhu.edu)
+    + Office: Robert Frost Hall, Room 311
+    + Office Hours: 
+    
+      + Wednesdays 1:00pm - 2:00pm
+      + Thursdays 9:00am - 11:00am
+      + Fridays 9:00am - 11:00am
+
+## Required Resources
+
+<div style="font-size:18pt">
+
+It's impossible to identify the resources you'll need at this stage. You and your teammates will decide what your tooling will be. I strongly recommend the following items though.
+
++ **Getting Started and Getting Solutions:** [This handbook](https://m3challenge.siam.org/wp-content/uploads/siam-guidebook-final-press.pdf) was written to help high school students approach problems for a mathematical modeling competition. It's a quick read and you may find it quite useful.
++ **Git/GitHub:** These are required version control tools for our semester. GitHub is where you'll store and update your project, assign and track "to-do list" items, and confirm that tasks are completed.
++ **Recommended IDE:** I recommend using the [RStudio](https://posit.co/download/rstudio-desktop/) or [Positron](https://positron.posit.co/download.html) IDE, especially if you haven't used an IDE before. You can choose a different IDE if you like, but I won't be able to help as much.
++ **Quarto:** You'll use Quarto for convenient and transparent document and presentation authoring.
++ **R/Python/etc.:** You'll need some sort of software to help you process data, build models, run simulations, etc. for our course. I'm able to support both R and Python use, but I have limited experience with other tools. You may also elect to use Excel, but you must take extreme care to document your work if this is the case.
+
+</div>
+
+## Grading Scheme
+
+  <center> 
+  Grade Item                     | Value
+  -------------------------------|-----------
+  Participation                  | 50%
+  Professionalism                | 30%
+  Final Report and Presentation  | 15%
+  Reflection                     | 5%
+  </center>
+
+
+:::{.fragment}
+
+<div style="font-size:18pt">
+
+**Participation:** This portion of the grading scheme encompasses all of your work and contributions to your group's final product as well as your participation in presentations and interactions with our liaison.
+
+</div>
+
+:::
+
+## Grading Scheme
+
+  <center> 
+  Grade Item                     | Value
+  -------------------------------|-----------
+  Participation                  | 50%
+  Professionalism                | 30%
+  Final Report and Presentation  | 15%
+  Reflection                     | 5%
+  </center>
+
+
+<div style="font-size:18pt">
+
+**Professionalism:** Professional conduct is essential in this course. This includes maintaining professional interactions with our liaison but also with your teammates. Student teams serve as ambassadors of the University when working with our liaising organization, and it is important to represent both yourself and the University community positively. 
+
+</div>
+
+## Grading Scheme
+
+  <center> 
+  Grade Item                     | Value
+  -------------------------------|-----------
+  Participation                  | 50%
+  Professionalism                | 30%
+  Final Report and Presentation  | 15%
+  Reflection                     | 5%
+  </center>
+
+<div style="font-size:18pt">
+
+**Final Report and Presentation:** These components will be evaluated holistically, with scores typically shared across all team members. Your team will produce a comprehensive report including background, methodology, data analysis, modeling, sensitivity analyses, and recommendations. You will also develop a presentation (slide deck) to be delivered to our liaison(s) and the broader University community. This grade reflects the quality of the final report and presentation materials, as well as the effectiveness of the final presentation itself.
+
+</div>
+
+## Grading Scheme
+
+  <center> 
+  Grade Item                     | Value
+  -------------------------------|-----------
+  Participation                  | 50%
+  Professionalism                | 30%
+  Final Report and Presentation  | 15%
+  Reflection                     | 5%
+  </center>
+
+<div style="font-size:18pt">
+
+**Reflection:** At the end of the course, you’ll submit a short, written reflection on your experience in MAT 440. Your reflection should discuss what you’ve learned and how you expect this experience to influence your future work—whether in coursework, research, job applications, or graduate
+school.
+
+</div>
+
+## Team Charter and Expectations
+
+<div style="font-size:17pt">
+
+::::{.columns}
+
+:::{.column width="50%"}
+
+<center>**Team Charter**</center>
+
+:::{.fragment}
+
+In any course focusing on a group project, there are group dynamics to navigate. Co-developing and abiding by a Team Charter provides a standard document outlining policies and procedures by which all team members agree to abide.
+
+:::
+
+:::{.fragment}
+
+The Team Charter will outline
+
+:::
+
++ Individual roles and responsibilities
++ Expected workload and participation
++ Communication norms
++ Deadlines and response expectations
++ What constitutes non-performance
+
+:::{.fragment}
+
+The Charter will provide the standard against which participation concerns are evaluated.
+
+:::
+
+:::
+
+:::{.column width="50%"}
+
+<center>**Performance Remediation**</center>
+
+:::{.fragment}
+
+In the event that a lack of participation or productivity of a teammate becomes an issue for a team, we'll pursue a three stage mediation process. See the course syllabus for full details.
+
+:::
+
+1. Internal discussion amongst the team.
+2. Development of a *Performance Improvement Plan* (PIP) highlighting (i) specific areas of concern, (ii) clear, measurable expectations, (iii) a defined timeline (typically 2 - 3 weeks), and (iv) the consequences of not meeting expectations.
+3. Removal from the team if the member fails to meet the terms of an approved PIP.
+
+:::{.fragment}
+
+$\bigstar$ The PIP must be submitted to the instructor for review and to ensure both fairness and clarity. The instructor's role is limited to procedural oversight rather than management of the plan.
+
+:::
+
+:::
+
+::::
+
+</div>
+
+## Remaining Time
+
++ Team assignments
++ Preliminary discussions
++ Drafting the Team Charters
++ Software setup
+
+## Next Time...
+
+<br/>
+<br/>
+
+An overview of, and first exposure to, `git` and GitHub. 
+
+<br/>
+
+:::{.fragment}
+
+**In the Meantime:** Start discussing your project preferences with your teammates. In the event that preferences are in conflict, we may be able to shuffle teams to accommodate preferences.
+
+:::
