@@ -313,6 +313,22 @@ school.
 
 </div>
 
+## Comments on AI Usage
+
+<div style="font-size:18pt">
+
++ Our final policy on AI use in MAT440 won't be finalized until our initial meeting with our liaison.
++ **Absolute Requirement:** Regardless of the agreed-upon policy, no proprietary data or other proprietary Blue Ocean Society information may be passed to an AI system under any circumstances.
+
+  + Violations of this requirement may constitute not only an academic integrity violation but also a breach of formal data usage agreements or confidentiality requirements.
+
++ Until final guidance is issued, I'll provide very clear instructions about permissible AI use on a day-to-day basis.
+
+  + Unless specific permission is granted, please assume that the corresponding AI use is not permitted until you've gotten clarification.
+
+</div>
+
+
 ## Team Charter and Expectations
 
 <div style="font-size:17pt">
