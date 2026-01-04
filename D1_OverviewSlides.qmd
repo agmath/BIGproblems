@@ -409,6 +409,6 @@ An overview of, and first exposure to, `git` and GitHub.
 
 :::{.fragment}
 
-**In the Meantime:** Start discussing your project preferences with your teammates. In the event that preferences are in conflict, we may be able to shuffle teams to accommodate preferences.
+**In the Meantime:** Start discussing your project direction preferences with your teammates. In the event that preferences are in conflict, we may be able to shuffle teams to accommodate preferences.
 
 :::
