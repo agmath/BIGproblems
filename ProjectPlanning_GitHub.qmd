@@ -1,0 +1,208 @@
+---
+title: "Planning Your Project with GitHub"
+subtitle: "Issues, Assignment, Branching, and Merging"
+author: "Dr. Gilbert"
+date: today
+date-format: long
+format: html
+toc: true
+theme: flatly
+---
+
+## Purpose of This Guide
+
+This document captures the key ideas from our in-class discussion on how we will use GitHub **as a project management and collaboration tool**, not just a place to store files. If you missed class, this guide should help you understand both **what** we are doing and **why** we are doing it.
+
+In this course, GitHub serves three roles:
+
+1. A **planning space** (issues)
+2. A **workspace** for individual contributions (branches)
+3. A **shared, polished product** space (the `main` branch)
+
+Even though our external non-profit partner will not be actively monitoring your repositories right now, we are working *as if* they could look later. That mindset helps ensure clarity, professionalism, and accountability.
+
+---
+
+## The Big Picture Workflow
+
+Our team workflow follows this pattern:
+
+> **Issues → Assignment → Branches → Pull Requests → Review → Merge into `main`**
+
+Each part plays a distinct role. Skipping steps usually creates confusion or conflicts later.
+
+---
+
+## Issues: Planning and Accountability
+
+### What is an Issue?
+
+An **issue** represents a meaningful unit of work that needs to be done for the project. Issues are not just for bugs.
+
+**Examples:**
+
+- Clean and document a dataset
+- Create exploratory plots
+- Investigate a modeling approach
+- Write a draft of a report section
+- Respond to feedback from the client or instructor
+
+### What Makes a Good Issue?
+
+A good issue makes expectations explicit. At a minimum, it should include:
+
+- **Clear title**: action-oriented and specific
+- **Context**: why this task matters to the project
+- **Task description**: what needs to be done
+- **Done-when criteria**: how we will know this issue is complete
+
+Ask yourself:
+
+> *If a teammate picked this up tomorrow, could they complete it without asking questions?*
+
+### Assignment / Ownership
+
+- Each issue should have **one primary owner**
+- Others can help, but one person is accountable for moving the issue forward
+
+---
+
+## Branches: Safe, Independent Work
+
+### Why Branches?
+
+Branches let you work freely without putting unfinished or broken work into the shared project.
+
+Key idea:
+
+> **Work happens in branches; `main` stays clean and presentable.**
+
+### How Branches Relate to Issues
+
+- Typically, create **one branch per issue**
+- Name branches so they clearly connect to the issue, for example:
+  - `issue-12-seasonality-plots`
+  - `issue-7-data-cleaning`
+
+This makes it easy for teammates (and future-you) to understand what the branch is about.
+
+---
+
+## A Practical Day-to-Day Git Workflow
+
+You already understand commits, pulling, and pushing. What follows is a **working strategy** that prioritizes coordination and minimizes conflicts. This isn't the only strategy, but it has served me well.
+
+### A Simple, Reliable Pattern
+
+When you sit down to work:
+
+1. **Pull immediately**
+   - This ensures you start with your teammates’ most recent changes
+
+2. **Work on your branch**
+   - Make updates to files related to your issue
+   - Commit whenever you reach a meaningful checkpoint
+
+3. **Commit early and often**
+   - Commits act as *milemarkers* in your thinking
+   - They do not need to represent final work
+
+4. **Push commits regularly**
+   - Pushing frequently is encouraged, even if it’s not strictly necessary
+   - Always push before taking a break or ending a work session
+
+This approach ensures that:
+
+- Your work is backed up
+- Teammates can pull your latest changes
+- Progress is visible to the rest of the team
+
+There are certainly other valid workflows, but this one is consistent, safe, and works well for team projects.
+
+---
+
+## Pull Requests: Review and Communication
+
+### What is a Pull Request (PR)?
+
+A pull request is a **request to merge your branch into `main`**, along with an explanation of what you did and why.
+
+Think of a PR as:
+
+> *"Please review my work and help ensure it meets our project standards."*
+
+### What a Good PR Includes
+
+- A short summary of what changed
+- A link to the issue it addresses (e.g., “Closes #12”)
+- Notes for reviewers (questions, uncertainties, or areas to focus on)
+
+### Review Expectations
+
+Reviewers should ask:
+
+- Does this meet the issue’s done-when criteria?
+- Is the analysis/code understandable to a teammate?
+- Would we feel comfortable building on this?
+
+### Suggested Team Norms
+
+- **No self-merging**
+- At least one teammate should approve before merging
+- Feedback should focus on clarity and correctness, not personal preference
+
+---
+
+## The `main` Branch: The Project’s Public Face
+
+Even though the client is not actively watching the repository right now, we treat `main` as:
+
+> **Client-ready at all times**
+
+That means:
+
+- No half-written analysis
+- No broken code
+- No speculative work
+
+Incomplete ideas belong in branches.
+
+---
+
+## Why This Matters (Even If No One Is Watching)
+
+Using GitHub this way helps your team:
+
+- Coordinate work efficiently
+- Avoid duplicated effort
+- Create a clear project history
+- Resolve disagreements about contributions
+- Produce a professional, understandable record of your work
+
+This workflow mirrors how many research groups and industry teams collaborate.
+
+---
+
+## Additional Team Charter Elements
+
+Each team should discuss and agree on:
+
+- What kinds of tasks require an issue?
+- How quickly should PRs be reviewed?
+- What does “approved” mean for your team?
+
+Document these expectations in your Team Charter.
+
+---
+
+## Final Thoughts
+
+The goal is not to use *every* GitHub feature. The goal is to build good habits:
+
+- Plan work explicitly
+- Make progress visible
+- Invite feedback
+- Protect the shared project
+
+If you do those things consistently, GitHub will work *for* you instead of against you.
+

@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.43">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Dr.&nbsp;Gilbert">
+<meta name="dcterms.date" content="2026-01-11">
+
+<title>Planning Your Project with GitHub</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="ProjectPlanning_GitHub_files/libs/clipboard/clipboard.min.js"></script>
+<script src="ProjectPlanning_GitHub_files/libs/quarto-html/quarto.js"></script>
+<script src="ProjectPlanning_GitHub_files/libs/quarto-html/popper.min.js"></script>
+<script src="ProjectPlanning_GitHub_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="ProjectPlanning_GitHub_files/libs/quarto-html/anchor.min.js"></script>
+<link href="ProjectPlanning_GitHub_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="ProjectPlanning_GitHub_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="ProjectPlanning_GitHub_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="ProjectPlanning_GitHub_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="ProjectPlanning_GitHub_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#purpose-of-this-guide" id="toc-purpose-of-this-guide" class="nav-link active" data-scroll-target="#purpose-of-this-guide">Purpose of This Guide</a></li>
+  <li><a href="#the-big-picture-workflow" id="toc-the-big-picture-workflow" class="nav-link" data-scroll-target="#the-big-picture-workflow">The Big Picture Workflow</a></li>
+  <li><a href="#issues-planning-and-accountability" id="toc-issues-planning-and-accountability" class="nav-link" data-scroll-target="#issues-planning-and-accountability">Issues: Planning and Accountability</a>
+  <ul class="collapse">
+  <li><a href="#what-is-an-issue" id="toc-what-is-an-issue" class="nav-link" data-scroll-target="#what-is-an-issue">What is an Issue?</a></li>
+  <li><a href="#what-makes-a-good-issue" id="toc-what-makes-a-good-issue" class="nav-link" data-scroll-target="#what-makes-a-good-issue">What Makes a Good Issue?</a></li>
+  <li><a href="#assignment-ownership" id="toc-assignment-ownership" class="nav-link" data-scroll-target="#assignment-ownership">Assignment / Ownership</a></li>
+  </ul></li>
+  <li><a href="#branches-safe-independent-work" id="toc-branches-safe-independent-work" class="nav-link" data-scroll-target="#branches-safe-independent-work">Branches: Safe, Independent Work</a>
+  <ul class="collapse">
+  <li><a href="#why-branches" id="toc-why-branches" class="nav-link" data-scroll-target="#why-branches">Why Branches?</a></li>
+  <li><a href="#how-branches-relate-to-issues" id="toc-how-branches-relate-to-issues" class="nav-link" data-scroll-target="#how-branches-relate-to-issues">How Branches Relate to Issues</a></li>
+  </ul></li>
+  <li><a href="#a-practical-day-to-day-git-workflow" id="toc-a-practical-day-to-day-git-workflow" class="nav-link" data-scroll-target="#a-practical-day-to-day-git-workflow">A Practical Day-to-Day Git Workflow</a>
+  <ul class="collapse">
+  <li><a href="#a-simple-reliable-pattern" id="toc-a-simple-reliable-pattern" class="nav-link" data-scroll-target="#a-simple-reliable-pattern">A Simple, Reliable Pattern</a></li>
+  </ul></li>
+  <li><a href="#pull-requests-review-and-communication" id="toc-pull-requests-review-and-communication" class="nav-link" data-scroll-target="#pull-requests-review-and-communication">Pull Requests: Review and Communication</a>
+  <ul class="collapse">
+  <li><a href="#what-is-a-pull-request-pr" id="toc-what-is-a-pull-request-pr" class="nav-link" data-scroll-target="#what-is-a-pull-request-pr">What is a Pull Request (PR)?</a></li>
+  <li><a href="#what-a-good-pr-includes" id="toc-what-a-good-pr-includes" class="nav-link" data-scroll-target="#what-a-good-pr-includes">What a Good PR Includes</a></li>
+  <li><a href="#review-expectations" id="toc-review-expectations" class="nav-link" data-scroll-target="#review-expectations">Review Expectations</a></li>
+  <li><a href="#suggested-team-norms" id="toc-suggested-team-norms" class="nav-link" data-scroll-target="#suggested-team-norms">Suggested Team Norms</a></li>
+  </ul></li>
+  <li><a href="#the-main-branch-the-projects-public-face" id="toc-the-main-branch-the-projects-public-face" class="nav-link" data-scroll-target="#the-main-branch-the-projects-public-face">The <code>main</code> Branch: The Project’s Public Face</a></li>
+  <li><a href="#why-this-matters-even-if-no-one-is-watching" id="toc-why-this-matters-even-if-no-one-is-watching" class="nav-link" data-scroll-target="#why-this-matters-even-if-no-one-is-watching">Why This Matters (Even If No One Is Watching)</a></li>
+  <li><a href="#additional-team-charter-elements" id="toc-additional-team-charter-elements" class="nav-link" data-scroll-target="#additional-team-charter-elements">Additional Team Charter Elements</a></li>
+  <li><a href="#final-thoughts" id="toc-final-thoughts" class="nav-link" data-scroll-target="#final-thoughts">Final Thoughts</a></li>
+  </ul>
+</nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Planning Your Project with GitHub</h1>
+<p class="subtitle lead">Issues, Assignment, Branching, and Merging</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Dr.&nbsp;Gilbert </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">January 11, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="purpose-of-this-guide" class="level2">
+<h2 class="anchored" data-anchor-id="purpose-of-this-guide">Purpose of This Guide</h2>
+<p>This document captures the key ideas from our in-class discussion on how we will use GitHub <strong>as a project management and collaboration tool</strong>, not just a place to store files. If you missed class, this guide should help you understand both <strong>what</strong> we are doing and <strong>why</strong> we are doing it.</p>
+<p>In this course, GitHub serves three roles:</p>
+<ol type="1">
+<li>A <strong>planning space</strong> (issues)</li>
+<li>A <strong>workspace</strong> for individual contributions (branches)</li>
+<li>A <strong>shared, polished product</strong> space (the <code>main</code> branch)</li>
+</ol>
+<p>Even though our external non-profit partner will not be actively monitoring your repositories right now, we are working <em>as if</em> they could look later. That mindset helps ensure clarity, professionalism, and accountability.</p>
+<hr>
+</section>
+<section id="the-big-picture-workflow" class="level2">
+<h2 class="anchored" data-anchor-id="the-big-picture-workflow">The Big Picture Workflow</h2>
+<p>Our team workflow follows this pattern:</p>
+<blockquote class="blockquote">
+<p><strong>Issues → Assignment → Branches → Pull Requests → Review → Merge into <code>main</code></strong></p>
+</blockquote>
+<p>Each part plays a distinct role. Skipping steps usually creates confusion or conflicts later.</p>
+<hr>
+</section>
+<section id="issues-planning-and-accountability" class="level2">
+<h2 class="anchored" data-anchor-id="issues-planning-and-accountability">Issues: Planning and Accountability</h2>
+<section id="what-is-an-issue" class="level3">
+<h3 class="anchored" data-anchor-id="what-is-an-issue">What is an Issue?</h3>
+<p>An <strong>issue</strong> represents a meaningful unit of work that needs to be done for the project. Issues are not just for bugs.</p>
+<p><strong>Examples:</strong></p>
+<ul>
+<li>Clean and document a dataset</li>
+<li>Create exploratory plots</li>
+<li>Investigate a modeling approach</li>
+<li>Write a draft of a report section</li>
+<li>Respond to feedback from the client or instructor</li>
+</ul>
+</section>
+<section id="what-makes-a-good-issue" class="level3">
+<h3 class="anchored" data-anchor-id="what-makes-a-good-issue">What Makes a Good Issue?</h3>
+<p>A good issue makes expectations explicit. At a minimum, it should include:</p>
+<ul>
+<li><strong>Clear title</strong>: action-oriented and specific</li>
+<li><strong>Context</strong>: why this task matters to the project</li>
+<li><strong>Task description</strong>: what needs to be done</li>
+<li><strong>Done-when criteria</strong>: how we will know this issue is complete</li>
+</ul>
+<p>Ask yourself:</p>
+<blockquote class="blockquote">
+<p><em>If a teammate picked this up tomorrow, could they complete it without asking questions?</em></p>
+</blockquote>
+</section>
+<section id="assignment-ownership" class="level3">
+<h3 class="anchored" data-anchor-id="assignment-ownership">Assignment / Ownership</h3>
+<ul>
+<li>Each issue should have <strong>one primary owner</strong></li>
+<li>Others can help, but one person is accountable for moving the issue forward</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="branches-safe-independent-work" class="level2">
+<h2 class="anchored" data-anchor-id="branches-safe-independent-work">Branches: Safe, Independent Work</h2>
+<section id="why-branches" class="level3">
+<h3 class="anchored" data-anchor-id="why-branches">Why Branches?</h3>
+<p>Branches let you work freely without putting unfinished or broken work into the shared project.</p>
+<p>Key idea:</p>
+<blockquote class="blockquote">
+<p><strong>Work happens in branches; <code>main</code> stays clean and presentable.</strong></p>
+</blockquote>
+</section>
+<section id="how-branches-relate-to-issues" class="level3">
+<h3 class="anchored" data-anchor-id="how-branches-relate-to-issues">How Branches Relate to Issues</h3>
+<ul>
+<li>Typically, create <strong>one branch per issue</strong></li>
+<li>Name branches so they clearly connect to the issue, for example:
+<ul>
+<li><code>issue-12-seasonality-plots</code></li>
+<li><code>issue-7-data-cleaning</code></li>
+</ul></li>
+</ul>
+<p>This makes it easy for teammates (and future-you) to understand what the branch is about.</p>
+<hr>
+</section>
+</section>
+<section id="a-practical-day-to-day-git-workflow" class="level2">
+<h2 class="anchored" data-anchor-id="a-practical-day-to-day-git-workflow">A Practical Day-to-Day Git Workflow</h2>
+<p>You already understand commits, pulling, and pushing. What follows is a <strong>working strategy</strong> that prioritizes coordination and minimizes conflicts. This isn’t the only strategy, but it has served me well.</p>
+<section id="a-simple-reliable-pattern" class="level3">
+<h3 class="anchored" data-anchor-id="a-simple-reliable-pattern">A Simple, Reliable Pattern</h3>
+<p>When you sit down to work:</p>
+<ol type="1">
+<li><strong>Pull immediately</strong>
+<ul>
+<li>This ensures you start with your teammates’ most recent changes</li>
+</ul></li>
+<li><strong>Work on your branch</strong>
+<ul>
+<li>Make updates to files related to your issue</li>
+<li>Commit whenever you reach a meaningful checkpoint</li>
+</ul></li>
+<li><strong>Commit early and often</strong>
+<ul>
+<li>Commits act as <em>milemarkers</em> in your thinking</li>
+<li>They do not need to represent final work</li>
+</ul></li>
+<li><strong>Push commits regularly</strong>
+<ul>
+<li>Pushing frequently is encouraged, even if it’s not strictly necessary</li>
+<li>Always push before taking a break or ending a work session</li>
+</ul></li>
+</ol>
+<p>This approach ensures that:</p>
+<ul>
+<li>Your work is backed up</li>
+<li>Teammates can pull your latest changes</li>
+<li>Progress is visible to the rest of the team</li>
+</ul>
+<p>There are certainly other valid workflows, but this one is consistent, safe, and works well for team projects.</p>
+<hr>
+</section>
+</section>
+<section id="pull-requests-review-and-communication" class="level2">
+<h2 class="anchored" data-anchor-id="pull-requests-review-and-communication">Pull Requests: Review and Communication</h2>
+<section id="what-is-a-pull-request-pr" class="level3">
+<h3 class="anchored" data-anchor-id="what-is-a-pull-request-pr">What is a Pull Request (PR)?</h3>
+<p>A pull request is a <strong>request to merge your branch into <code>main</code></strong>, along with an explanation of what you did and why.</p>
+<p>Think of a PR as:</p>
+<blockquote class="blockquote">
+<p><em>“Please review my work and help ensure it meets our project standards.”</em></p>
+</blockquote>
+</section>
+<section id="what-a-good-pr-includes" class="level3">
+<h3 class="anchored" data-anchor-id="what-a-good-pr-includes">What a Good PR Includes</h3>
+<ul>
+<li>A short summary of what changed</li>
+<li>A link to the issue it addresses (e.g., “Closes #12”)</li>
+<li>Notes for reviewers (questions, uncertainties, or areas to focus on)</li>
+</ul>
+</section>
+<section id="review-expectations" class="level3">
+<h3 class="anchored" data-anchor-id="review-expectations">Review Expectations</h3>
+<p>Reviewers should ask:</p>
+<ul>
+<li>Does this meet the issue’s done-when criteria?</li>
+<li>Is the analysis/code understandable to a teammate?</li>
+<li>Would we feel comfortable building on this?</li>
+</ul>
+</section>
+<section id="suggested-team-norms" class="level3">
+<h3 class="anchored" data-anchor-id="suggested-team-norms">Suggested Team Norms</h3>
+<ul>
+<li><strong>No self-merging</strong></li>
+<li>At least one teammate should approve before merging</li>
+<li>Feedback should focus on clarity and correctness, not personal preference</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="the-main-branch-the-projects-public-face" class="level2">
+<h2 class="anchored" data-anchor-id="the-main-branch-the-projects-public-face">The <code>main</code> Branch: The Project’s Public Face</h2>
+<p>Even though the client is not actively watching the repository right now, we treat <code>main</code> as:</p>
+<blockquote class="blockquote">
+<p><strong>Client-ready at all times</strong></p>
+</blockquote>
+<p>That means:</p>
+<ul>
+<li>No half-written analysis</li>
+<li>No broken code</li>
+<li>No speculative work</li>
+</ul>
+<p>Incomplete ideas belong in branches.</p>
+<hr>
+</section>
+<section id="why-this-matters-even-if-no-one-is-watching" class="level2">
+<h2 class="anchored" data-anchor-id="why-this-matters-even-if-no-one-is-watching">Why This Matters (Even If No One Is Watching)</h2>
+<p>Using GitHub this way helps your team:</p>
+<ul>
+<li>Coordinate work efficiently</li>
+<li>Avoid duplicated effort</li>
+<li>Create a clear project history</li>
+<li>Resolve disagreements about contributions</li>
+<li>Produce a professional, understandable record of your work</li>
+</ul>
+<p>This workflow mirrors how many research groups and industry teams collaborate.</p>
+<hr>
+</section>
+<section id="additional-team-charter-elements" class="level2">
+<h2 class="anchored" data-anchor-id="additional-team-charter-elements">Additional Team Charter Elements</h2>
+<p>Each team should discuss and agree on:</p>
+<ul>
+<li>What kinds of tasks require an issue?</li>
+<li>How quickly should PRs be reviewed?</li>
+<li>What does “approved” mean for your team?</li>
+</ul>
+<p>Document these expectations in your Team Charter.</p>
+<hr>
+</section>
+<section id="final-thoughts" class="level2">
+<h2 class="anchored" data-anchor-id="final-thoughts">Final Thoughts</h2>
+<p>The goal is not to use <em>every</em> GitHub feature. The goal is to build good habits:</p>
+<ul>
+<li>Plan work explicitly</li>
+<li>Make progress visible</li>
+<li>Invite feedback</li>
+<li>Protect the shared project</li>
+</ul>
+<p>If you do those things consistently, GitHub will work <em>for</em> you instead of against you.</p>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
